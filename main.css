@@ -1,0 +1,66 @@
+/* This is going to be the main CSS for the page */
+
+/* Reseting the CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Krona One', sans-serif;
+}
+
+#title-container {
+    text-align: center;
+    background-color: lightgray;
+    width: 800px;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 5px 5px black;
+}
+
+#title-container h1 {
+    font-size: 30px;
+}
+
+
+#url-container {
+    width: 500px;
+    margin: 30px auto;
+    text-align: center;
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px black;
+}
+
+#form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    border: none;
+    padding: 10px;    
+    font-size: 15px;
+    margin-left: 20px;
+    box-shadow: 2px 2px black;
+    border-radius: 10px;
+}
+
+#btn-form {
+    align-self: center;
+    border: none;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    box-shadow: 5px 5px black;
+}
+
+#formatted-data {
+    margin: 40px auto;
+    background-color: lightgray;
+    font-size: 16px;
+}

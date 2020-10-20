@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Requesting Page - Request your data !</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="main.css" />
+        <script src="mainRequesting.js"></script>
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="title-container">
+                <h1>Requesting Page - See your requested data below:</h1>
+                <p>
+                    In this static page you can request you data, then the
+                    <strong>logic</strong> in the JavaScript file is going
+                    to format that data to the <strong><em>div</em></strong>
+                    below.
+                </p>
+            </div>
+            <div id="url-container">
+                <p>You can put the url in here, and we'll handle the response of the page !</p>
+                <hr />
+                <form id="form">
+                    <div>
+                        <label for="url">Url:</label> 
+                        <input type="text" class="input" id="url" placeholder="Enter the url" required />
+                    </div>
+                    <button type="submit" id="btn-form">Get Data</button>   
+                </form>
+            </div>
+            <div id="formatted-data"></div>
+        </div>
+    </body>
+</html>
