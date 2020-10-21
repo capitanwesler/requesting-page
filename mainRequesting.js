@@ -3,10 +3,6 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
-    document.querySelector("form").addEventListener("submit", function(event) {
-        event.preventDefault();
-    });
-
     //First we need to grab the div, where we are going to save
     //all the data from the API
 
@@ -18,14 +14,24 @@ document.addEventListener("DOMContentLoaded", function() {
     //We need also grab the button, to add a event listener for the click
     let buttonForm = document.getElementById("btn-form");
 
+    //Reset button to the divFormatted
+    let reset = document.getElementById("reset");
+
+    reset.addEventListener("click", resetDiv);
+
     buttonForm.addEventListener("click", handleClick);
+
+    document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault();
+    });
 
     //We create the function for the handle click
     function handleClick() {
 
         let url = inputForm.value;
 
-        console.log(url);
+        //We reset the data in the Ul when, new information, come
+        dataDiv.querySelector("ul").innerHTML = "";
 
         if (checkUrl(url)) {
            
@@ -37,20 +43,24 @@ document.addEventListener("DOMContentLoaded", function() {
             // fetch(url)
             //     .then(response => response.json())
             //     .then(data => console.log(data)); 
+
+            dataDiv.classList.remove("non-display");
+            dataDiv.classList.add("displayed");
+            
             let xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
                     let data = JSON.parse(this.response);
                     console.log(data);
-                    let formattedData = `
-                        <p>Name: ${data.name}</p>
-                        <p>Abilities:</p>
-                        <p>${data.abilities.map(skill => skill.ability.name)}</p>
-                    `;
-                    dataDiv.innerHTML += formattedData;
+                    
+                    for (const info in data) {
+                      let formattedInfo = `
+                       <li>${info}: ${data[info]}</li>`; 
+
+                      dataDiv.querySelector("ul").innerHTML += formattedInfo;
+                    }
                 }
             }; 
-            
 
             xhr.open("GET", url);
             xhr.send();
@@ -74,5 +84,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    function resetDiv() {
+        dataDiv.classList.add("non-display");
+        dataDiv.classList.remove("displayed");
 
+        dataDiv.querySelector("ul").innerHTML = "";
+    }
 });

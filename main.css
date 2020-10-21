@@ -63,4 +63,27 @@ body {
     margin: 40px auto;
     background-color: lightgray;
     font-size: 16px;
+    padding: 40px;
+    width: 600px;
+    border-radius: 15px;
+    box-shadow: 5px 5px black;
+    display: flex;
+    flex-direction: column;
+}
+
+.non-display {
+    display: none;
+}
+
+.displayed {
+    display: block;
+}
+
+#reset {
+    align-self: center;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    box-shadow: 5px 5px black;
+    border-radius: 10px;
 }
